@@ -1,0 +1,30 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f8fafc; color: #0f172a; }
+.app { max-width: 1100px; margin: 0 auto; padding: 24px; }
+header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.logo { background: #6366f1; color: white; padding: 8px; border-radius: 10px; display: grid; place-items: center; }
+h1 { margin: 0; font-size: 22px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 16px; margin-bottom: 24px; }
+.stat { background: white; padding: 16px; border-radius: 12px; display: flex; gap: 12px; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,.05); }
+.stat-icon { background: #eef2ff; color: #6366f1; padding: 10px; border-radius: 10px; }
+.stat.income .stat-icon { background: #d1fae5; color: #10b981; }
+.stat.expense .stat-icon { background: #fee2e2; color: #ef4444; }
+.stat small { display: block; color: #64748b; font-size: 12px; }
+.stat strong { font-size: 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 16px; margin-bottom: 24px; }
+.card { background: white; padding: 16px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,.05); }
+.card h3 { margin: 0 0 12px; font-size: 15px; }
+form input, form select { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 14px; }
+.tabs { display: flex; gap: 8px; margin-bottom: 10px; }
+.tabs button { flex: 1; padding: 8px; border: 1px solid #e2e8f0; background: white; border-radius: 8px; cursor: pointer; }
+.tabs button.on { background: #6366f1; color: white; border-color: #6366f1; }
+.primary { width: 100%; padding: 10px; background: #6366f1; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
+.list { list-style: none; padding: 0; margin: 0; }
+.list li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f1f5f9; }
+.list li > div { flex: 1; }
+.list small { display: block; color: #64748b; font-size: 12px; }
+.list .income { color: #10b981; font-weight: 600; }
+.list .expense { color: #ef4444; font-weight: 600; }
+.list button { background: none; border: none; color: #94a3b8; cursor: pointer; }
+.muted { color: #94a3b8; font-size: 14px; }
+app.css
