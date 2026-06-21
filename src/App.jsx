@@ -46,19 +46,32 @@ function summarize(txs) {
     .sort((a, b) => b.value - a.value);
 
   const days = [];
-  for (let i = 6; i >= 0; i--) {
-    const d = new Date();
-    d.setHours(0, 0, 0, 0);
-    d.setDate(d.getDate() - i);
-    const key = d.toISOString().slice(0, 10);
-    const day = { day: d.toLocaleDateString("en-US", { weekday: "short" }), income: 0, expense: 0 };
-    txs.forEach((t) => {
-      if (t.date.slice(0, 10) === key) day[t.type] += t.amount;
-    });
-    days.push(day);
-  }
-  return { income, expense, balance: income - expense, categoryBreakdown, days };
+
+for (let i = 6; i >= 0; i--) {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() - i);
+
+  const day = {
+    day: d.toLocaleDateString("en-US", { weekday: "short" }),
+    income: 0,
+    expense: 0,
+  };
+
+  txs.forEach((t) => {
+    const txDate = new Date(t.date);
+    txDate.setHours(0, 0, 0, 0);
+
+    if (txDate.getTime() === d.getTime()) {
+      day[t.type] += Number(t.amount);
+    }
+  });
+
+  days.push(day);
 }
+
+console.log("Transactions:", txs);
+console.log("Chart Data:", days);
 
 // ---------- App ----------
 export default function App() {
