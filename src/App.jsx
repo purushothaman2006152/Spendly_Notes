@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
 import { Wallet, TrendingUp, TrendingDown, Trash2 } from "lucide-react";
-import {
-  BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
+import {                                                        BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, Legend, CartesianGrid,
 } from "recharts";
 import "./App.css";
 
-const STORAGE_KEY = "expense-tracker:v1";
-const EXPENSE_CATS = ["Food", "Transport", "Shopping", "Bills", "Entertainment", "Health", "Other"];
-const INCOME_CATS = ["Salary", "Freelance", "Investment", "Gift", "Other"];
-const COLORS = ["#6366f1", "#ec4899", "#f59e0b", "#10b981", "#3b82f6", "#ef4444", "#8b5cf6"];
+const STORAGE_KEY = "expense-tracker:v1";                     const EXPENSE_CATS = ["Food", "Transport", "Shopping", "Bills", "Entertainment", "Health", "Other"];
+const INCOME_CATS = ["Salary", "Freelance", "Investment", "Gift", "Other"];                                                 const COLORS = ["#6366f1", "#ec4899", "#f59e0b", "#10b981", "#3b82f6", "#ef4444", "#8b5cf6"];
 
 const fmt = (n) =>
   new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(n);
@@ -46,32 +43,19 @@ function summarize(txs) {
     .sort((a, b) => b.value - a.value);
 
   const days = [];
-
-for (let i = 6; i >= 0; i--) {
-  const d = new Date();
-  d.setHours(0, 0, 0, 0);
-  d.setDate(d.getDate() - i);
-
-  const day = {
-    day: d.toLocaleDateString("en-US", { weekday: "short" }),
-    income: 0,
-    expense: 0,
-  };
-
-  txs.forEach((t) => {
-    const txDate = new Date(t.date);
-    txDate.setHours(0, 0, 0, 0);
-
-    if (txDate.getTime() === d.getTime()) {
-      day[t.type] += Number(t.amount);
-    }
-  });
-
-  days.push(day);
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() - i);
+    const key = d.toISOString().slice(0, 10);
+    const day = { day: d.toLocaleDateString("en-US", { weekday: "short" }), income: 0, expense: 0 };
+    txs.forEach((t) => {
+      if (t.date.slice(0, 10) === key) day[t.type] += t.amount;
+    });
+    days.push(day);
+  }
+  return { income, expense, balance: income - expense, categoryBreakdown, days };
 }
-
-console.log("Transactions:", txs);
-console.log("Chart Data:", days);
 
 // ---------- App ----------
 export default function App() {
@@ -87,13 +71,7 @@ export default function App() {
     e.preventDefault();
     const amt = parseFloat(amount);
     if (!amt || amt <= 0) return;
-    add({
-  type,
-  amount: Number(amt),
-  category,
-  note,
-  date: new Date().toISOString(),
-});
+    add({ type, amount: amt, category, note, date: new Date().toISOString() });
     setAmount(""); setNote("");
   };
 
