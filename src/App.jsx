@@ -87,7 +87,13 @@ export default function App() {
     e.preventDefault();
     const amt = parseFloat(amount);
     if (!amt || amt <= 0) return;
-    add({ type, amount: amt, category, note, date: new Date().toISOString() });
+    add({
+  type,
+  amount: Number(amt),
+  category,
+  note,
+  date: new Date().toISOString(),
+});
     setAmount(""); setNote("");
   };
 
