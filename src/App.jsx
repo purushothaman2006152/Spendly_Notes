@@ -169,6 +169,3 @@ function Stat({ label, value, icon, tone }) {
     </div>
   );
 }
-
-
-
