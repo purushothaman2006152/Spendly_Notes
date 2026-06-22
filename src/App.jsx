@@ -9,7 +9,7 @@ const STORAGE_KEY = "expense-tracker:v1";                     const EXPENSE_CATS
 const INCOME_CATS = ["Salary", "Freelance", "Investment", "Gift", "Other"];                                                 const COLORS = ["#6366f1", "#ec4899", "#f59e0b", "#10b981", "#3b82f6", "#ef4444", "#8b5cf6"];
 
 const fmt = (n) =>
-  new Intl.NumberFormat("en-US", { style: "currency", currency: "INR" }).format(n);
+  new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR" }).format(n);
 
 // ---------- localStorage hook ----------
 function useTransactions() {
