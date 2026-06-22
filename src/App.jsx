@@ -81,7 +81,7 @@ export default function App() {
     <div className="app">
       <header>
         <div className="logo"><Wallet size={20} /></div>
-        <h1>Spendly</h1>
+        <h1>Spendly Notes</h1>
       </header>
 
       <section className="stats">
