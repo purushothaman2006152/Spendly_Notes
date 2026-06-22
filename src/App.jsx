@@ -154,8 +154,8 @@ export default function App() {
           </ul>
         )}
       </section>
-    </div>
-    <center>
+    
+    
 <div className="foot">
 <footer>
   <p>© 2026 Spendly Notes. All Rights Reserved.</p>
@@ -169,7 +169,7 @@ export default function App() {
   <a href="/disclaimer.html">Disclaimer</a>
 </footer>
 </div>
-</center>
+
     </div>
   );
 }
