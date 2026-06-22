@@ -155,6 +155,22 @@ export default function App() {
         )}
       </section>
     </div>
+    <center>
+<div className="foot">
+<footer>
+  <p>© 2026 Spendly Notes. All Rights Reserved.</p>
+
+  <p>
+    Built with ❤️ by Purushothaman E
+  </p>
+
+  <a href="/privacy-policy.html">Privacy Policy</a> |
+  <a href="/terms.html">Terms of Service</a> |
+  <a href="/disclaimer.html">Disclaimer</a>
+</footer>
+</div>
+</center>
+    </div>
   );
 }
 
