@@ -27,4 +27,4 @@ form input, form select { width: 100%; padding: 10px; margin-bottom: 10px; borde
 .list .expense { color: #ef4444; font-weight: 600; }
 .list button { background: none; border: none; color: #94a3b8; cursor: pointer; }
 .muted { color: #94a3b8; font-size: 14px; }
-
+.foot{text-align:center;background: white; padding: 16px;<border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,.05);}
