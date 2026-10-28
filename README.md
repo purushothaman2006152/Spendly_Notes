@@ -1,16 +1,30 @@
-# React + Vite
+# Spendly Notes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple expense and income tracker built with React + Vite. All data stays in your browser (localStorage).
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Add income and expenses with category, date and note
+- Dashboard: balance, income and expense totals
+- **Last 7 days** bar chart (income vs expense)
+- **Spending by category** donut chart with percentages and a full legend
+- **5 themes**: Light, Dark, Ocean, Forest, Sunset (saved in the browser)
+- **Analysis report** with savings rate, average daily spend, top category and plain-language insights
+- **Download the report** as PDF, Excel (.xlsx), CSV, JSON, HTML, Word (.doc), Markdown or Text, or print it
 
-## React Compiler
+## Run locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev      # development server
+npm run build    # production build
+npm run lint
+```
 
-## Expanding the ESLint configuration
+## Tech
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+React 19, Vite, Recharts, lucide-react, jsPDF + jspdf-autotable, ExcelJS.
+
+---
+
+Built by Purushothaman E
